@@ -25,7 +25,6 @@ func (c *Command) GenerateResponse() message.Response {
 	case "date":
 		return new(dateCommand).generate(c.request)
 	default:
-		return *message.NewResponse(500, "command '" + c.request.GetCommand() + "' not recognized", "")
+		return *message.NewResponse(500, "command '"+c.request.GetCommand()+"' not recognized", "")
 	}
 }
-

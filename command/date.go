@@ -1,9 +1,9 @@
 package command
 
 import (
+	"fmt"
 	"github.com/edwinhoksberg/tamarin/message"
 	"time"
-	"fmt"
 )
 
 type dateCommand struct{}

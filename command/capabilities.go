@@ -1,8 +1,8 @@
 package command
 
 import (
-	"github.com/edwinhoksberg/tamarin/message"
 	"fmt"
+	"github.com/edwinhoksberg/tamarin/message"
 	"strings"
 )
 

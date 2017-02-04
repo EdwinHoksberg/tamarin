@@ -17,4 +17,4 @@ func (c *helpCommand) generate(request message.Request) message.Response {
 	commands = append(commands, ".")
 
 	return *message.NewResponse(100, "Help text follows", strings.Join(commands, "\r\n"))
- }
+}

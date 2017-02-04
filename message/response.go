@@ -11,11 +11,11 @@ type Response struct {
 	responseBody    string
 }
 
-func NewResponse(responseCode int, responseMessage string, responseBody string) *Response  {
+func NewResponse(responseCode int, responseMessage string, responseBody string) *Response {
 	return &Response{
-		responseCode: responseCode,
+		responseCode:    responseCode,
 		responseMessage: responseMessage,
-		responseBody: responseBody,
+		responseBody:    responseBody,
 	}
 }
 

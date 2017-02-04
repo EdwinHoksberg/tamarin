@@ -11,7 +11,7 @@ type Request struct {
 
 func NewRequest(command string, parameters []string) Request {
 	return Request{
-		command: command,
+		command:    command,
 		parameters: parameters,
 	}
 }
