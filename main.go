@@ -127,6 +127,7 @@ func catchSignals() {
 
 			switch recv_signal {
 			case syscall.SIGINT:
+				fallthrough
 			case syscall.SIGTERM:
 				logger.info("Recieved program interrupt, shutting down...")
 				connection.server.Close()
