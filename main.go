@@ -120,14 +120,15 @@ func connectionHandler(client *Client) {
 func catchSignals() {
 	signal_channel := make(chan os.Signal, 1)
 
-	signal.Notify(signal_channel, os.Interrupt, syscall.SIGUSR1)
+	signal.Notify(signal_channel, os.Interrupt, syscall.SIGTERM, syscall.SIGUSR1)
 	go func() {
 		for {
 			recv_signal := <-signal_channel
 
 			switch recv_signal {
 			case syscall.SIGINT:
-				logger.info("Recieved program interrupt(SIGINT), shutting down...")
+			case syscall.SIGTERM:
+				logger.info("Recieved program interrupt, shutting down...")
 				connection.server.Close()
 
 				os.Exit(0)
