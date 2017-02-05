@@ -79,22 +79,22 @@ func connectionHandler(client *Client) {
 		logger.debug("Recieved message: %s", line)
 
 		// Parse the client message in multiple parameters
-		message_ := strings.Fields(string(line[:]))
-		if len(message_) == 0 {
+		recieved_message := strings.Fields(string(line[:]))
+		if len(recieved_message) == 0 {
 			logger.info("Got empty client message, ignoring...")
 			continue
 		}
 
 		// Make an request object with the parsed message
 		logger.debug("Generating request object...")
-		request := message.NewRequest(strings.ToLower(message_[0]), append(message_[:0], message_[:1]...))
+		request := message.NewRequest(strings.ToLower(recieved_message[0]), append(recieved_message[:0], recieved_message[:1]...))
 
 		// Find the associated command for the request
 		logger.debug("Generating request message...")
-		command_ := command.New(request).GenerateResponse()
+		generated_command := command.New(request).GenerateResponse()
 
 		// Generate an response for the client
-		response := command_.ToString()
+		response := generated_command.ToString()
 
 		// Send the response
 		logger.debug("Sending message: %s", strings.Trim(response, "\r\n"))
